@@ -1,0 +1,47 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Dodawanie elementu</title>
+ </head>
+ <body>
+     <div class="container">
+         <main>
+             <header>
+                <h1>Dodawanie nowych elementów</h1>
+                <h3>Tytuł jakiś tam</h3>
+             </header>
+             <button>Dodaj element</button>
+             <footer>
+                 <p>&copy; Me XXI c.</p>
+             </footer>
+         </main>
+     </div>
+     <script>
+         const przycisk = document.querySelector('button')
+         const display = document.querySelector('main')
+
+        let i = 1;
+         przycisk.addEventListener('click', function(){
+            const newElement = document.createElement('p');
+            newElement.style.color = '#bbb'
+            newElement.textContent = 'Nowy element'
+            
+            const newElementH3 = document.createElement('h3')
+            newElementH3.style.backgroundColor = '#ff0';
+            const h3TextNode = document.createTextNode(`Jakiś tytuł ${i}`);
+            newElementH3.addEventListener('click', function(evt){
+                console.log(this);
+                this.remove();
+            })
+            newElementH3.append(h3TextNode);
+            
+            //display.appendChild(newElement, newElementH3)
+            display.append(newElementH3 ,newElement);
+            i++
+         })
+     </script>
+ </body>
+ </html>       
